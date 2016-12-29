@@ -9,3 +9,6 @@ def duplicate2[T](list: List[T]): List[T] = {
 
   loop(list, Nil).reverse
 }
+
+def duplicateN[T](count: Int, list: List[T]) =
+  list.flatMap(e => List.fill(count)(e))
