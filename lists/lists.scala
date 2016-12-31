@@ -25,3 +25,7 @@ def drop2[T](position: Int, list: List[T]) = {
 
   loop(list, Nil, 1)
 }
+
+def splitList[T](n: Int, xs: List[T]) = (xs take n, xs drop n)
+
+def slice[T](from: Int, to: Int, xs: List[T]) = (xs drop from) take (to - from)
