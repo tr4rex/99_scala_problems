@@ -33,3 +33,16 @@ def slice[T](from: Int, to: Int, xs: List[T]) = (xs drop from) take (to - from)
 def rotate[T](n: Int, xs: List[T]) = slice(n, xs.length, xs) ++ xs.take(n)
 
 def removeAt1[T](n: Int, xs: List[T]) = xs.zipWithIndex.withFilter(n != _._2).map(_._1)
+
+def insertAt[T](x: T, n: Int, xs: List[T]) = {
+    val (left, right) = xs.splitAt(n)
+    left ++ (x :: right)
+}
+
+def range(from: Int, to: Int) = {
+  def step(n: Int, acc: List[Int]): List[Int] =
+    if (n > to) acc.reverse
+    else step(n + 1, n :: acc)
+
+  step(from, Nil)
+}
