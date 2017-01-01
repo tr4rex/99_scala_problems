@@ -1,4 +1,4 @@
-def duplicateElements[T](list: List[T]): List[T] =
+	def duplicateElements[T](list: List[T]): List[T] =
   list.flatMap(i => List(i, i))
 
 def duplicate2[T](list: List[T]): List[T] = {
@@ -29,3 +29,7 @@ def drop2[T](position: Int, list: List[T]) = {
 def splitList[T](n: Int, xs: List[T]) = (xs take n, xs drop n)
 
 def slice[T](from: Int, to: Int, xs: List[T]) = (xs drop from) take (to - from)
+
+def rotate[T](n: Int, xs: List[T]) = slice(n, xs.length, xs) ++ xs.take(n)
+
+def removeAt1[T](n: Int, xs: List[T]) = xs.zipWithIndex.withFilter(n != _._2).map(_._1)
